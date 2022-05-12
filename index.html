@@ -53,19 +53,25 @@
                 height: 24px;
                 vertical-align: middle;
             }
-@font-face {
-    font-family: "Ubuntu";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local("Ubuntu"), local("Ubuntu"), local("Ubuntu-R"), local("Ubuntu"), url("/prizm.dev/assets/css/ubuntu/Ubuntu-R.ttf");
-} @font-face {
-    font-family: "Ubuntu";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local("Ubuntu Bold"), local("Ubuntu-Bold"), local("Ubuntu-B"), local("Ubuntu"), url("/prizm.dev/assets/css/ubuntu/Ubuntu-B.ttf");
-}
+            @media screen and (orientation: portrait) {
+                button:not(#reset) {
+                    width: 100%;
+                    height: 30%;
+                }
+            }
+            @font-face {
+                font-family: "Ubuntu";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: local("Ubuntu"), local("Ubuntu"), local("Ubuntu-R"), local("Ubuntu"), url("/prizm.dev/assets/css/ubuntu/Ubuntu-R.ttf");
+            } @font-face {
+                font-family: "Ubuntu";
+                font-style: normal;
+                font-weight: 700;
+                font-display: swap;
+                src: local("Ubuntu Bold"), local("Ubuntu-Bold"), local("Ubuntu-B"), local("Ubuntu"), url("/prizm.dev/assets/css/ubuntu/Ubuntu-B.ttf");
+            }
         </style>
     </head>
     <body>
