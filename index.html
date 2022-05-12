@@ -72,6 +72,7 @@
                 value = (good * 100 + okay * 50 + poor * 0) / (good + okay + poor);
                 $("#bar").value = value;
             }
+            window.ontouch = (evt) => {evt.cancel();}
         </script>
     </body>
 </html>
