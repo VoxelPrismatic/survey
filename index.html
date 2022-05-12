@@ -16,7 +16,7 @@
                 height: 90%;
                 text-align: center;
             }
-            button {
+            button:not(#reset) {
                 width: 30%;
                 height: 90%;
                 border: 8px solid;
@@ -40,6 +40,16 @@
             progress {
                 width: 80%;
             }
+            button#reset {
+                flex: 0 0 48px;
+                border: #fff 2px solid;
+                border-radius: 4px;
+                color: #000;
+                background-color: #444;
+            }
+            span#values {
+                flex: 0 0 48px;
+            }
 @font-face {
     font-family: "Ubuntu";
     font-style: normal;
@@ -59,8 +69,12 @@
         <div id="box">
             <button id="good" onclick="good++;do_math();">:)</button>
             <button id="okay" onclick="okay++;do_math();">:|</button>
-            <button id="poor" onclick="poor++;do_math();">:(</button><br>
-            <progress id="bar" max="100" style="transform:scale(-1,1);"></progress> <span id="values">0/0/0 - 0%</span>
+            <button id="poor" onclick="poor++;do_math();">:(</button>
+            <div style="display:flex;width:90%;">
+                <button id="reset">reset</button>
+                <progress id="bar" max="100" style="transform:scale(-1,1);"></progress>
+                <span id="values">0/0/0 - 0%</span>
+            </div>
         </div>
         <script type="text/javascript">
             function $(q,e=document){return e.querySelector(q);}
