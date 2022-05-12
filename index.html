@@ -38,7 +38,7 @@
                 background-color: #411;
             }
             progress {
-                width: 75%;
+                width: 80%;
             }
 @font-face {
     font-family: "Ubuntu";
@@ -60,7 +60,7 @@
             <button id="good" onclick="good++;do_math();">:)</button>
             <button id="okay" onclick="okay++;do_math();">:|</button>
             <button id="poor" onclick="poor++;do_math();">:(</button><br>
-            <progress id="bar" max="100" style="transform:scale(-1,1);"></progress> <span id="values">0/0/0</span>
+            <progress id="bar" max="100" style="transform:scale(-1,1);"></progress> <span id="values">0/0/0 - 0%</span>
         </div>
         <script type="text/javascript">
             function $(q,e=document){return e.querySelector(q);}
@@ -70,7 +70,7 @@
             function do_math() {
                 value = (good * 100 + okay * 50 + poor * 0) / (good + okay + poor);
                 $("#bar").value = value;
-                $("#values").innerHTML = good + "/" + okay + "/" + poor + " - " + (Math.round(value * 100) / 100) + "% class confidence";
+                $("#values").innerHTML = good + "/" + okay + "/" + poor + " - " + (Math.round(value * 100) / 100) + "%";
             }
             window.ontouch = (evt) => {evt.cancel();}
         </script>
