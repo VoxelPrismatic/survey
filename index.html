@@ -74,7 +74,7 @@
             <button id="okay" onclick="okay++;do_math();">:|</button>
             <button id="poor" onclick="poor++;do_math();">:(</button><br><br>
             <div style="display:flex;width:90%;margin:auto;">
-                <button id="reset" onclick="if(confirm('Reset data?')){good=0;okay=0;poor=0;do_math();}">reset</button>
+                <button id="reset" onclick="if(confirm(`Reset data?\nCurrent stats: ${$('#values').innerHTML}`)){good=0;okay=0;poor=0;do_math();}">reset</button>
                 <progress id="bar" max="100"></progress>
                 <span id="values">~</span>
             </div>
@@ -94,9 +94,9 @@
                 localStorage.setItem("survey_okay", okay);
                 localStorage.setItem("survey_poor", poor);
                 localStorage.setItem("survey_time", Number(new Date()));
-                value = (good * 100 + okay * 50 + poor * 0) / ((good + okay + poor) || 1);
+                value = Math.round((good * 100 + okay * 50 + poor * 0) / ((good + okay + poor) || 1) * 100) / 100;
                 $("#bar").value = value;
-                $("#values").innerHTML = good + "/" + okay + "/" + poor + " - " + (Math.round(value * 100) / 100) + "%";
+                $("#values").innerHTML = `${good}/${okay}/${poor} - ${value}%`;
             }
             do_math();
             window.ontouch = (evt) => {evt.preventDefault();}
