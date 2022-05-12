@@ -110,7 +110,7 @@
                     localStorage.setItem("survey_time", Number(new Date()));
                 value = Math.round((good * 100 + okay * 50 + poor * 0) / ((good + okay + poor) || 1) * 100) / 100;
                 $("#bar").value = value;
-                $("#values").innerHTML = `${good}/${okay}/${poor} - ${value}%`;
+                $("#values").innerHTML = `<span style="color:#0f8;">${good}</span>/<span style="color:#ff0;">${okay}</span>/<span style="color:#f00;">${poor}</span> - ${value}%`;
             }
             do_math(0);
             window.ontouch = (evt) => {evt.preventDefault();}
