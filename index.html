@@ -72,7 +72,7 @@
                 $("#bar").value = value;
                 $("#values").innerHTML = good + "/" + okay + "/" + poor + " - " + (Math.round(value * 100) / 100) + "%";
             }
-            window.ontouch = (evt) => {evt.cancel();}
+            window.ontouch = (evt) => {evt.preventDefault();}
         </script>
     </body>
 </html>
