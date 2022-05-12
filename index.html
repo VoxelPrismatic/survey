@@ -87,7 +87,7 @@
             <button id="okay" onclick="okay++;do_math();">:|</button>
             <button id="poor" onclick="poor++;do_math();">:(</button><br><br>
             <div id="flex">
-                <button id="reset" onclick="if(confirm(`Reset data?\nCurrent stats: ${$('#values').innerHTML}`)){good=0;okay=0;poor=0;do_math();}">reset</button>
+                <button id="reset" onclick="if(confirm(`Reset data?\nCurrent stats: ${$('#values').textContent}`)){good=0;okay=0;poor=0;do_math();}">reset</button>
                 <progress id="bar" max="100"></progress>
                 <span id="values" title="Results will be cleared in 45 minutes">~</span>
             </div>
