@@ -89,7 +89,7 @@
             <div id="flex">
                 <button id="reset" onclick="if(confirm(`Reset data?\nCurrent stats: ${$('#values').innerHTML}`)){good=0;okay=0;poor=0;do_math();}">reset</button>
                 <progress id="bar" max="100"></progress>
-                <span id="values">~</span>
+                <span id="values" title="Results will be cleared in 45 minutes">~</span>
             </div>
         </div>
         <script type="text/javascript">
@@ -97,21 +97,22 @@
             var good = 0;
             var okay = 0;
             var poor = 0;
-            if(Number(new Date()) - (Number(localStorage.getItem("survey_time")) || 0) < 36000000) {
+            if(Number(new Date()) - (Number(localStorage.getItem("survey_time")) || 0) < 45 * 60 * 1000) {
                 good = Number(localStorage.getItem("survey_good"));
                 okay = Number(localStorage.getItem("survey_okay"));
                 poor = Number(localStorage.getItem("survey_poor"));
             }
-            function do_math() {
+            function do_math(save_time = 1) {
                 localStorage.setItem("survey_good", good);
                 localStorage.setItem("survey_okay", okay);
                 localStorage.setItem("survey_poor", poor);
-                localStorage.setItem("survey_time", Number(new Date()));
+                if(save_time)
+                    localStorage.setItem("survey_time", Number(new Date()));
                 value = Math.round((good * 100 + okay * 50 + poor * 0) / ((good + okay + poor) || 1) * 100) / 100;
                 $("#bar").value = value;
                 $("#values").innerHTML = `${good}/${okay}/${poor} - ${value}%`;
             }
-            do_math();
+            do_math(0);
             window.ontouch = (evt) => {evt.preventDefault();}
         </script>
     </body>
