@@ -92,7 +92,7 @@
                 localStorage.setItem("survey_okay", okay);
                 localStorage.setItem("survey_poor", poor);
                 localStorage.setItem("survey_time", Number(new Date()));
-                value = (good * 100 + okay * 50 + poor * 0) / (good + okay + poor);
+                value = (good * 100 + okay * 50 + poor * 0) / ((good + okay + poor) || 1);
                 $("#bar").value = value;
                 $("#values").innerHTML = good + "/" + okay + "/" + poor + " - " + (Math.round(value * 100) / 100) + "%";
             }
