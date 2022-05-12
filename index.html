@@ -40,7 +40,7 @@
             }
             progress {
                 width: 80%;
-                flex-grow: 1;
+                flex-grow: 0.5;
                 margin: auto 8px;
                 transform: scale(-1, 1);
             }
@@ -90,7 +90,7 @@
             <div id="flex">
                 <button id="reset" onclick="if(confirm(`Reset data?\nCurrent stats: ${$('#values').innerHTML}`)){good=0;okay=0;poor=0;do_math();}">reset</button>
                 <progress id="bar" max="100"></progress>
-                <span id="values">~</span>
+                <span id="values" style="flex-grow:2">~</span>
             </div>
         </div>
         <script type="text/javascript">
