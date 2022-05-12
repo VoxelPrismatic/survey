@@ -71,7 +71,7 @@
             <button id="okay" onclick="okay++;do_math();">:|</button>
             <button id="poor" onclick="poor++;do_math();">:(</button>
             <div style="display:flex;width:90%;">
-                <button id="reset">reset</button>
+                <button id="reset" onclick="if(confirm('Reset data?')){good=0;okay=0;poor=0;do_math();}">reset</button>
                 <progress id="bar" max="100" style="transform:scale(-1,1);"></progress>
                 <span id="values">0/0/0 - 0%</span>
             </div>
@@ -81,11 +81,21 @@
             var good = 0;
             var okay = 0;
             var poor = 0;
+            if(Number(new Date()) - (Number(localStorage.getItem("survey_time")) || 0) < 36000000) {
+                good = Number(localStorage.getItem("survey_good"));
+                okay = Number(localStorage.getItem("survey_okay"));
+                poor = Number(localStorage.getItem("survey_poor"));
+            }
             function do_math() {
+                localStorage.setItem("survey_good", good);
+                localStorage.setItem("survey_okay", okay);
+                localStorage.setItem("survey_poor", poor);
+                localStorage.setItem("survey_time", Number(new Date()));
                 value = (good * 100 + okay * 50 + poor * 0) / (good + okay + poor);
                 $("#bar").value = value;
                 $("#values").innerHTML = good + "/" + okay + "/" + poor + " - " + (Math.round(value * 100) / 100) + "%";
             }
+            do_math();
             window.ontouch = (evt) => {evt.preventDefault();}
         </script>
     </body>
