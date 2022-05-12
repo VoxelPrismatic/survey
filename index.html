@@ -42,6 +42,7 @@
                 width: 80%;
                 flex-grow: 2;
                 margin: auto 8px;
+                transform: scale(-1, 1);
             }
             button#reset {
                 flex: 0 0 48px;
@@ -52,7 +53,9 @@
                 height: 24px;
                 vertical-align: middle;
             }
-             
+            span#values {
+                flex-grow: 3;
+            }
 @font-face {
     font-family: "Ubuntu";
     font-style: normal;
@@ -75,7 +78,7 @@
             <button id="poor" onclick="poor++;do_math();">:(</button><br><br>
             <div style="display:flex;width:90%;margin:auto;">
                 <button id="reset" onclick="if(confirm('Reset data?')){good=0;okay=0;poor=0;do_math();}">reset</button>
-                <progress id="bar" max="100" style="transform:scale(-1,1);"></progress>
+                <progress id="bar" max="100"></progress>
                 <span id="values">~</span>
             </div>
         </div>
