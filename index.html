@@ -5,9 +5,9 @@
         <link rel="preload" src="/prizm.dev/assets/css/ubuntu/Ubuntu-B.ttf" type="font/sfnt" as="font"/>
         <link rel="preload" src="/prizm.dev/assets/css/ubuntu/Ubuntu-R.ttf" type="font/sfnt" as="font"/>
         <style type="text/css">
+            * { font-family: "Ubuntu"; }
             body {
                 height: 99vh;
-                font-family: "Ubuntu";
                 background-color: #111;
                 color: #fff;
             }
@@ -39,6 +39,8 @@
             }
             progress {
                 width: 80%;
+                flex-grow: 2;
+                margin: auto 8px;
             }
             button#reset {
                 flex: 0 0 48px;
@@ -49,6 +51,7 @@
                 height: 18px;
                 vertical-align: middle;
             }
+             
 @font-face {
     font-family: "Ubuntu";
     font-style: normal;
