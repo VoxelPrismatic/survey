@@ -53,10 +53,18 @@
                 height: 24px;
                 vertical-align: middle;
             }
+            div#flex {
+                display: flex;
+                width: 90%;
+                margin: auto;
+            }
             @media screen and (orientation: portrait) {
                 button:not(#reset) {
                     width: 100%;
                     height: 30%;
+                }
+                div#flex {
+                    width: 100%;
                 }
             }
             @font-face {
@@ -79,7 +87,7 @@
             <button id="good" onclick="good++;do_math();">:)</button>
             <button id="okay" onclick="okay++;do_math();">:|</button>
             <button id="poor" onclick="poor++;do_math();">:(</button><br><br>
-            <div style="display:flex;width:90%;margin:auto;">
+            <div id="flex">
                 <button id="reset" onclick="if(confirm(`Reset data?\nCurrent stats: ${$('#values').innerHTML}`)){good=0;okay=0;poor=0;do_math();}">reset</button>
                 <progress id="bar" max="100"></progress>
                 <span id="values">~</span>
